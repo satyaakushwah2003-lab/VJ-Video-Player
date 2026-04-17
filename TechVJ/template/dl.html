@@ -2,129 +2,119 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" href="https://i.ibb.co/qJyZWCv/20230629-081948-0000.png" type="image/x-icon">
-    <meta property="og:image" content="https://i.ibb.co/qJyZWCv/20230629-081948-0000.png" itemprop="thumbnailUrl">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>%s | Tech VJ</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type='text/css' href="https://drive----google.com/uc?export=view&id=1pVLG4gZy7jdow3sO-wFS06aP_A9QX0O6">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Delius">
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.9/plyr.css" />
+    <title>%s | Anime Doses</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-
-</head>
-
-<body class='bg-gradient-to-bl from-yellow-500 via-red-600 to-orange-500'>
-    <header>
-        <!-- Navbar -->
-            <nav class="navbar bg-dark p-lg-4 p-2">
-                <!-- web title -->
-                <div class="container-fluid">
-                    <a class="navbar-brand  text-light fw-bold " href="https://telegram.me/VJ_Disk">
-                        <span class="bg-clip-text sm:text-[25px] text-[22px] text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
-                            VJ Disk
-                          </span>
-                    </a>
-                  </div>
-               </div>
-            </nav>
-            <!-- ./Navbar -->
-    </header>
-    <div class="bg-black  text-light"  >
-        <!-- file Name -> to be displayed here  -->
-        <div class="justify-content-center align-items-center w-100 d-flex">
-            <div id="file-name" class="tex-center text-lg max:w-74  p-2 flex-wrap text-center justify-center items-center">
-                <p class="fw-bold"> 
-                    <span id="myDiv" class="h6 flex-wrap text-center justify-center items-center card-title wow animate__animated animate__fadeInRight" >
-                        %s
-                    </span>
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <div class="container flex justify-center items-center min-h-screen ">
-        <a class="w-full flex justify-center items-center " href=%s>
-            <div class="col-lg-4 p-2 col-12 rounded-3xl bg-dark text-white text-center align-items-center hover:bg-gradient-to-r from-pink-500 to-violet-500 hover:shadow-md hover:shadow-gray-100 hover:translate-y-[-5px] transition transition-all duration-300 wow animate__animated animate__rubberBand">
-                Download
-                <span aria-hidden>_</span>
-                <span aria-hidden class="">_404 Error</span>
-                <span aria-hidden class="">_%s</span>
-            </div>
-        </a>
-    </div>
     
-    <footer class="bg-dark justify-content-around align-items-center">
-        <div class="container-fluid  justify-content-center align-itemsd x. -center">
-                <!-- Copyright -->
-            </div> 
-            <div class=" justify-center items-center text-center w-full text-center flex ">
-                <div  class="text-gray-400 text-center sm:-m-1 -ms-4 m-2 p-2">
-                    <h5>
-                        
-                    </h5>
-                </div>
+    <style>
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            background-image: radial-gradient(circle at 50% -20%, #3b0764 0%, #050505 80%);
+            min-height: 100-vh;
+        }
+
+        /* Glassmorphism Player */
+        .premium-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Glowing Social Buttons */
+        .social-btn {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-radius: 16px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-btn:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+
+        .tg-btn { background: #0088cc; border-bottom: 4px solid #005580; }
+        .yt-btn { background: #ff0000; border-bottom: 4px solid #b30000; }
+        .ig-btn { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); border-bottom: 4px solid #8a144d; }
+        .wa-btn { background: #25d366; border-bottom: 4px solid #128c7e; }
+
+        /* Custom Plyr Theme */
+        .plyr--full-ui.plyr--video .plyr__control--overlaid { background: #a78bfa; }
+        .plyr--video .plyr__controls { background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.7)); border-radius: 0 0 24px 24px; }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+
+    <div class="max-w-5xl mx-auto">
+        <header class="text-center mb-12">
+            <h1 class="text-5xl font-black tracking-tighter italic mb-3">
+                <span class="text-white">ANIME</span><span class="text-purple-500">DOSES</span>
+            </h1>
+            <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-6 py-2 rounded-full">
+                <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                <p class="text-zinc-300 text-sm font-medium tracking-wide">Streaming: %s</p>
+            </div>
+        </header>
+
+        <div class="premium-card p-2 mb-10 overflow-hidden">
+            <video id="player" playsinline controls class="rounded-2xl overflow-hidden">
+                <source src="%s" type="video/mp4" />
+            </video>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
+            <a href="%s" class="social-btn bg-white text-black py-5 text-xl hover:bg-zinc-200">
+                <i class="fas fa-play-circle text-2xl"></i> DOWNLOAD NOW
+            </a>
+            <a href="https://t.me/AnimeDoses" target="_blank" class="social-btn tg-btn py-5 text-xl text-white">
+                <i class="fab fa-telegram-plane text-2xl"></i> JOIN COMMUNITY
+            </a>
+        </div>
+
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+            <a href="http://googleusercontent.com/youtube.com/3" target="_blank" class="social-btn yt-btn py-4 text-white">
+                <i class="fab fa-youtube text-xl"></i> YOUTUBE
+            </a>
+            <a href="https://www.instagram.com/thebreakdownbro?igsh=MXdqeWw3MTZiZTkwZA==" target="_blank" class="social-btn ig-btn py-4 text-white">
+                <i class="fab fa-instagram text-xl"></i> INSTAGRAM
+            </a>
+            <a href="https://whatsapp.com/channel/0029VbCnqlq3bbUxmrkLQS23" target="_blank" class="social-btn wa-btn py-4 text-white">
+                <i class="fab fa-whatsapp text-xl"></i> WHATSAPP
+            </a>
+            <a href="https://t.me/MOVIES24X7_BOT" target="_blank" class="social-btn tg-btn py-4 text-white">
+                <i class="fas fa-robot text-xl"></i> OUR BOT
+            </a>
+        </div>
+
+        <div class="premium-card p-6 text-center border-dashed">
+            <p class="text-zinc-500 text-xs leading-relaxed max-w-2xl mx-auto uppercase tracking-tighter">
+                Everything you see is for informational purposes. Anime Doses does not host any copyrighted material. 
+                Enjoy high-speed streaming without limits.
+            </p>
+            <div class="mt-6 border-t border-white/5 pt-6 text-zinc-400 text-[10px] font-bold tracking-[0.3em]">
+                © 2026 ANIME DOSES | BUILT FOR THE FANS
             </div>
         </div>
-        <hr>
-        <div class="text-center text-xs p-3 dark:text-light text-light gap-2" style="background-color: rgba(0, 0, 0, 0.2);">
-            
-        ©  <script type="text/JavaScript">
-            var theDate=new Date() 
-                document.write(theDate.getFullYear()) 
-        </script> Copyright :
-            <a class="bg-clip-text text-[16px] text-transparent bg-gradient-to-r from-pink-500 to-violet-500 font-bold tracking-wide px-1" href="https://youtube.com/@Tech_VJ">Tech VJ</a>
-           
-            All Right Reserved
-        </div>   
-    </footer>
+    </div>
 
-    <script src="https://cdn.plyr.io/3.6.12/plyr.js"></script>
-	<script>
-        const controls = [
-              'play-large',
-              'rewind',
-              'play', 
-              'fast-forward', 
-              'progress', 
-              'current-time',
-              'duration',
-              'mute',
-              'volume',
-              'captions',
-              'settings',
-              'pip',
-              'airplay',
-              'download',
-              'fullscreen'
-            ];
-        document.addEventListener('DOMContentLoaded', () => {
-            const player = Plyr.setup('.player', { controls });
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+    <script>
+        const player = new Plyr('#player', {
+            speed: { selected: 1, options: [0.5, 0.75, 1, 1.25, 1.5, 2] },
+            quality: { default: 720 }
         });
-
-
     </script>
-       <script src="js/wow.min.js"></script>
-       <script>
-           new WOW().init();
-       </script>
-       <script>
-           var div = document.getElementById('myDiv');
-           var text = div.textContent;
-   
-           if(text.length > 60){
-               div.textContent = text.slice(0, 60)+"....";
-           }
-   
-       </script>
 </body>
 </html>
-
-<!--  Don't Remove Credit @VJ_Botz Subscribe YouTube Channel For Amazing Bot @Tech_VJ Ask Doubt on telegram @KingVJ01 -->
