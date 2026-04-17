@@ -3,118 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>%s | Anime Doses</title>
+    <title>{{file_name}} | Anime Doses</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <style>
-        body {
-            background-color: #050505;
-            color: #ffffff;
-            font-family: 'Outfit', sans-serif;
-            background-image: radial-gradient(circle at 50% -20%, #3b0764 0%, #050505 80%);
-            min-height: 100-vh;
-        }
-
-        /* Glassmorphism Player */
-        .premium-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 24px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Glowing Social Buttons */
-        .social-btn {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border-radius: 16px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .social-btn:hover {
-            transform: scale(1.05) translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-        }
-
-        .tg-btn { background: #0088cc; border-bottom: 4px solid #005580; }
-        .yt-btn { background: #ff0000; border-bottom: 4px solid #b30000; }
-        .ig-btn { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); border-bottom: 4px solid #8a144d; }
-        .wa-btn { background: #25d366; border-bottom: 4px solid #128c7e; }
-
-        /* Custom Plyr Theme */
-        .plyr--full-ui.plyr--video .plyr__control--overlaid { background: #a78bfa; }
-        .plyr--video .plyr__controls { background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.7)); border-radius: 0 0 24px 24px; }
+        body { background: #050505; color: #fff; background-image: radial-gradient(circle at 50% -20%, #3b0764 0%, #050505 80%); min-height: 100vh; padding: 15px; }
+        .plyr-container { border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
+        .social-btn { border-radius: 12px; font-weight: 700; transition: 0.3s; }
+        .social-btn:hover { transform: translateY(-3px); filter: brightness(1.1); }
     </style>
 </head>
-<body class="p-4 md:p-10">
-
-    <div class="max-w-5xl mx-auto">
-        <header class="text-center mb-12">
-            <h1 class="text-5xl font-black tracking-tighter italic mb-3">
-                <span class="text-white">ANIME</span><span class="text-purple-500">DOSES</span>
-            </h1>
-            <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-6 py-2 rounded-full">
-                <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                <p class="text-zinc-300 text-sm font-medium tracking-wide">Streaming: %s</p>
+<body>
+    <div class="max-w-4xl mx-auto py-6">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-black italic tracking-tighter">ANIME<span class="text-purple-500">DOSES</span></h1>
+            <div class="bg-white/5 border border-white/10 rounded-full px-4 py-1 inline-block mt-3">
+                <p class="text-[10px] uppercase font-bold text-zinc-400 tracking-widest">{{file_name}}</p>
             </div>
         </header>
 
-        <div class="premium-card p-2 mb-10 overflow-hidden">
-            <video id="player" playsinline controls class="rounded-2xl overflow-hidden">
-                <source src="%s" type="video/mp4" />
+        <div class="plyr-container mb-8">
+            <video id="player" playsinline controls>
+                {% if file_url %}<source src="{{file_url}}" type="video/mp4">{% endif %}
             </video>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
-            <a href="%s" class="social-btn bg-white text-black py-5 text-xl hover:bg-zinc-200">
-                <i class="fas fa-play-circle text-2xl"></i> DOWNLOAD NOW
-            </a>
-            <a href="https://t.me/AnimeDoses" target="_blank" class="social-btn tg-btn py-5 text-xl text-white">
-                <i class="fab fa-telegram-plane text-2xl"></i> JOIN COMMUNITY
-            </a>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+            <a href="{{link}}" class="social-btn bg-white text-black py-4 flex items-center justify-center gap-2 text-lg"><i class="fas fa-download"></i> DOWNLOAD NOW</a>
+            <a href="https://t.me/AnimeDoses" class="social-btn bg-[#0088cc] text-white py-4 flex items-center justify-center gap-2 text-lg"><i class="fab fa-telegram-plane"></i> JOIN COMMUNITY</a>
         </div>
 
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
-            <a href="http://googleusercontent.com/youtube.com/3" target="_blank" class="social-btn yt-btn py-4 text-white">
-                <i class="fab fa-youtube text-xl"></i> YOUTUBE
-            </a>
-            <a href="https://www.instagram.com/thebreakdownbro?igsh=MXdqeWw3MTZiZTkwZA==" target="_blank" class="social-btn ig-btn py-4 text-white">
-                <i class="fab fa-instagram text-xl"></i> INSTAGRAM
-            </a>
-            <a href="https://whatsapp.com/channel/0029VbCnqlq3bbUxmrkLQS23" target="_blank" class="social-btn wa-btn py-4 text-white">
-                <i class="fab fa-whatsapp text-xl"></i> WHATSAPP
-            </a>
-            <a href="https://t.me/MOVIES24X7_BOT" target="_blank" class="social-btn tg-btn py-4 text-white">
-                <i class="fas fa-robot text-xl"></i> OUR BOT
-            </a>
-        </div>
-
-        <div class="premium-card p-6 text-center border-dashed">
-            <p class="text-zinc-500 text-xs leading-relaxed max-w-2xl mx-auto uppercase tracking-tighter">
-                Everything you see is for informational purposes. Anime Doses does not host any copyrighted material. 
-                Enjoy high-speed streaming without limits.
-            </p>
-            <div class="mt-6 border-t border-white/5 pt-6 text-zinc-400 text-[10px] font-bold tracking-[0.3em]">
-                © 2026 ANIME DOSES | BUILT FOR THE FANS
-            </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 opacity-80">
+            <a href="https://youtube.com/@thebreakdownbro?si=CIKSaMnws2HFCXWU" class="social-btn bg-red-600 text-white p-3 text-xs flex items-center justify-center gap-2"><i class="fab fa-youtube"></i> YOUTUBE</a>
+            <a href="https://www.instagram.com/thebreakdownbro" class="social-btn bg-pink-600 text-white p-3 text-xs flex items-center justify-center gap-2"><i class="fab fa-instagram"></i> INSTAGRAM</a>
+            <a href="https://whatsapp.com/channel/0029VbCnqlq3bbUxmrkLQS23" class="social-btn bg-green-500 text-white p-3 text-xs flex items-center justify-center gap-2"><i class="fab fa-whatsapp"></i> WHATSAPP</a>
+            <a href="https://t.me/MOVIES24X7_BOT" class="social-btn bg-zinc-800 text-white p-3 text-xs flex items-center justify-center gap-2"><i class="fas fa-robot"></i> OUR BOT</a>
         </div>
     </div>
-
     <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
-    <script>
-        const player = new Plyr('#player', {
-            speed: { selected: 1, options: [0.5, 0.75, 1, 1.25, 1.5, 2] },
-            quality: { default: 720 }
-        });
-    </script>
+    <script>const player = new Plyr('#player');</script>
 </body>
 </html>
