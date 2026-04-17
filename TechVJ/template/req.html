@@ -22,6 +22,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 0;
         }
 
         .premium-card {
@@ -30,9 +31,9 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 32px;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-            width: 100%;
-            max-width: 600px;
-            padding: 40px 24px;
+            width: 90%;
+            max-width: 500px;
+            padding: 45px 25px;
             text-align: center;
         }
 
@@ -44,12 +45,15 @@
             align-items: center;
             justify-content: center;
             gap: 12px;
+            padding: 14px;
             text-decoration: none !important;
+            color: white;
         }
 
         .social-btn:hover {
             transform: scale(1.05) translateY(-3px);
             filter: brightness(1.2);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
 
         .tg-btn { background: #0088cc; }
@@ -59,13 +63,13 @@
 
         .loader-ring {
             display: inline-block;
-            width: 60px;
-            height: 60px;
+            width: 55px;
+            height: 55px;
             border: 4px solid rgba(167, 139, 250, 0.1);
             border-left-color: #a78bfa;
             border-radius: 50%;
             animation: spin 1s linear infinite;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         @keyframes spin { to { transform: rotate(360deg); } }
@@ -80,61 +84,6 @@
             hasSpent30Seconds = true;
         }
 
-        setTimeout(setSpentTimeFlag, 30000);
+        setTimeout(setSpentTimeFlag, 30000); // 30 seconds timer
 
-        document.addEventListener("click", function(event) {
-            if (hasSpent30Seconds && !clickCounted) {
-                clickCounted = true;
-                fetch('/click-counter', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ user_id: userId })
-                })
-                .catch(error => console.error('Error:', error));
-            }
-        });
-    </script>
-</head>
-
-<body class="p-4">
-
-    <div class="premium-card">
-        <h1 class="text-3xl font-black italic mb-8 uppercase tracking-tighter">
-            <span class="text-white">ANIME</span><span class="text-purple-500">DOSES</span>
-        </h1>
-
-        <div class="loader-ring"></div>
-
-        <h2 class="text-xl font-bold mb-2">Processing Your Request...</h2>
-        <p class="text-zinc-400 text-sm mb-8 px-6">
-            Bhai, tera link generate ho raha hai. Tab tak niche diye gaye platforms par join ho jao updates ke liye!
-        </p>
-
-        <a href="https://t.me/AnimeDoses" target="_blank" class="social-btn tg-btn py-4 text-lg text-white mb-8 shadow-lg shadow-blue-600/20">
-            <i class="fab fa-telegram-plane"></i> JOIN TELEGRAM CHANNEL
-        </a>
-
-        <p class="text-[10px] text-zinc-500 uppercase tracking-widest mb-4">Support The Breakdown Bros</p>
-
-        <div class="grid grid-cols-2 gap-3 mb-8">
-            <a href="https://www.youtube.com/@TheBreakdownBros" target="_blank" class="social-btn yt-btn py-3 text-white text-xs">
-                <i class="fab fa-youtube"></i> YOUTUBE
-            </a>
-            <a href="https://www.instagram.com/thebreakdownbro?igsh=MXdqeWw3MTZiZTkwZA==" target="_blank" class="social-btn ig-btn py-3 text-white text-xs">
-                <i class="fab fa-instagram"></i> INSTAGRAM
-            </a>
-            <a href="https://whatsapp.com/channel/0029VbCnqlq3bbUxmrkLQS23" target="_blank" class="social-btn wa-btn py-3 text-white text-xs">
-                <i class="fab fa-whatsapp"></i> WHATSAPP
-            </a>
-            <a href="https://t.me/MOVIES24X7_BOT" target="_blank" class="social-btn bg-zinc-800 py-3 text-white text-xs">
-                <i class="fas fa-robot"></i> OUR BOT
-            </a>
-        </div>
-
-        <div class="border-t border-white/5 pt-6 text-zinc-600 text-[9px] tracking-widest">
-            © 2026 ANIME DOSES | ALL RIGHTS RESERVED
-        </div>
-    </div>
-
-</body>
-</html>
+        document.addEventListener("click",
