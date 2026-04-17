@@ -14,10 +14,18 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-        body { background-color: #050505; color: #ffffff; font-family: 'Outfit', sans-serif; background-image: radial-gradient(circle at 50% -20%, #3b0764 0%, #050505 80%); min-height: 100vh; margin: 0; padding: 0; }
+        body { background-color: #050505; color: #ffffff; font-family: 'Outfit', sans-serif; background-image: radial-gradient(circle at 50% -20%, #3b0764 0%, #050505 80%); min-height: 100vh; margin: 0; }
         .premium-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 28px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7); }
         .social-btn { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); border-radius: 16px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none !important; color: white; }
-        .social-btn:hover { transform: scale(1.05) translateY(-3px); filter: brightness(1.2); }
+        .social-btn:hover { transform: scale(1.05) translateY(-3px); filter: brightness(1.2); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
+        
+        /* Brand Colors */
+        .btn-tg { background: #0088cc; }
+        .btn-yt { background: #ff0000; }
+        .btn-ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .btn-wa { background: #25d366; }
+        .btn-bot { background: #3f3f46; } /* Zinc-700 */
+
         .plyr--full-ui.plyr--video .plyr__control--overlaid { background: #a78bfa; }
     </style>
 
@@ -48,7 +56,7 @@
                 <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 uppercase">{{name}}</span>
             </h1>
             <div class="bg-white/5 border border-white/10 px-4 py-2 rounded-2xl inline-block max-w-full">
-                <p class="text-zinc-300 text-xs font-medium truncate">{{file_name}}</p>
+                <p class="text-zinc-300 text-xs font-medium truncate italic">{{file_name}}</p>
             </div>
         </header>
 
@@ -59,7 +67,7 @@
         </div>
 
         <div class="mb-10 text-center">
-            <p class="text-[10px] text-zinc-500 uppercase tracking-[0.3em] font-bold mb-4">Play in App</p>
+            <p class="text-[10px] text-zinc-500 uppercase tracking-[0.3em] font-bold mb-4 italic">Choose Your Player</p>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
                 <a href="intent:{{file_url}}#Intent;package=com.mxtech.videoplayer.ad;S.title={{file_name}};end" class="social-btn bg-blue-700 py-3 text-xs">
                     <i class="fas fa-play-circle text-lg"></i> MX PLAYER
@@ -73,31 +81,37 @@
             </div>
         </div>
 
-        <div class="mb-10 text-center">
-            <p class="text-[10px] text-zinc-500 uppercase tracking-[0.3em] font-bold mb-4">Fast Download</p>
-            <div class="space-y-3">
-                <a href="{{file_url}}" download="{{file_name}}" class="social-btn bg-white text-black py-4 text-lg">
-                    <i class="fas fa-download"></i> DIRECT DOWNLOAD
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+            <a href="{{file_url}}" download="{{file_name}}" class="social-btn bg-white text-black py-4 text-lg border-b-4 border-zinc-300">
+                <i class="fas fa-cloud-download-alt"></i> FAST DOWNLOAD
+            </a>
+            <a href="https://t.me/AnimeDoses" target="_blank" class="social-btn btn-tg py-4 text-lg shadow-lg shadow-blue-500/20">
+                <i class="fab fa-telegram-plane"></i> JOIN TELEGRAM
+            </a>
+        </div>
+
+        <div class="mb-12">
+            <p class="text-[10px] text-zinc-500 uppercase tracking-[0.3em] font-bold mb-4 text-center">Connect With Us</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <a href="https://youtube.com/@thebreakdownbro?si=SVlaAaLZE1LbbsGm" target="_blank" class="social-btn btn-yt py-3 text-[11px]">
+                    <i class="fab fa-youtube"></i> YOUTUBE
                 </a>
-                <div class="grid grid-cols-2 gap-3">
-                    <a href="intent:{{file_url}}#Intent;package=com.dv.adm;S.title={{file_name}};end" class="social-btn bg-zinc-800 text-zinc-400 py-2 text-[10px]">
-                        <i class="fas fa-bolt text-yellow-500"></i> ADM
-                    </a>
-                    <a href="intent:{{file_url}}#Intent;package=idm.internet.download.manager;S.title={{file_name}};end" class="social-btn bg-zinc-800 text-zinc-400 py-2 text-[10px]">
-                        <i class="fas fa-download text-blue-500"></i> IDM
-                    </a>
-                </div>
+                <a href="https://www.instagram.com/thebreakdownbro?igsh=MXdqeWw3MTZiZTkwZA==" target="_blank" class="social-btn btn-ig py-3 text-[11px]">
+                    <i class="fab fa-instagram"></i> INSTAGRAM
+                </a>
+                <a href="https://whatsapp.com/channel/0029VbCnqlq3bbUxmrkLQS23" target="_blank" class="social-btn btn-wa py-3 text-[11px]">
+                    <i class="fab fa-whatsapp"></i> WHATSAPP
+                </a>
+                <a href="https://t.me/MOVIES24X7_BOT" target="_blank" class="social-btn btn-bot py-3 text-[11px]">
+                    <i class="fas fa-robot"></i> OUR BOT
+                </a>
             </div>
         </div>
 
-        <footer class="text-center py-8 border-t border-white/5 opacity-60">
-            <p class="text-[10px] tracking-widest uppercase">
-                © <script>document.write(new Date().getFullYear())</script> {{name}} | All Rights Reserved
+        <footer class="text-center py-10 border-t border-white/5 opacity-60">
+            <p class="text-[10px] tracking-widest uppercase font-bold">
+                © <script>document.write(new Date().getFullYear())</script> {{name}} | THE BREAKDOWN BROS
             </p>
-            <div class="mt-4 flex justify-center gap-4 text-xs">
-                <a href="{{link}}" class="text-purple-400">Join Telegram</a>
-                <a href="https://www.instagram.com/thebreakdownbro" class="text-pink-400">Instagram</a>
-            </div>
         </footer>
     </div>
 
@@ -109,7 +123,7 @@
             });
         });
         
-        // Disabling Right Click & Inspect (Original logic)
+        // Right Click Disable Logic
         document.addEventListener("contextmenu", e => e.preventDefault());
         document.addEventListener('keydown', e => {
             if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'u')) e.preventDefault();
